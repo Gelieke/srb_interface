@@ -1,27 +1,21 @@
 <?php
-    $username = "id1804782_data"; 
+    $username = "id1804782_regenton"; 
     $password = "Regenton123";   
     $host = "localhost";
-    $database="rainforecast";
-    
-    $server = mysql_connect($host, $username, $password);
-    $connection = mysql_select_db($database, $server);
+    $database = "id1804782_data";
+    $table= "rainforecast";
 
-    $myquery = "SELECT  value, time  FROM  rainforecast";
-    $query = mysql_query($myquery);
-    
-    if ( ! $query ) {
-        echo mysql_error();
-        die;
-    }
-    
-    $data = array();
-    
-    for ($x = 0; $x < mysql_num_rows($query); $x++) {
-        $data[] = mysql_fetch_assoc($query);
-    }
-    
-    echo json_encode($data);     
-     
-    mysql_close($server);
+    // Create connection
+    $conn = new mysqli($host, $username, $password, $database);
+
+   // Check connection
+    if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
+
+    $sql = "SELECT  value, time  FROM " . $table;
+    $result = $conn->query($sql);
+
+    for ($data = array (); $row = $result->fetch_assoc(); $data[] = $row);
+    echo json_encode($data);
+
+    $conn->close();    
 ?>
