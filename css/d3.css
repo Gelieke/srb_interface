@@ -1,11 +1,97 @@
-/* set the CSS for D3 */
+/*  Created by Gelieke Steeghs, copyright 2017.
+    This code is for a dashboard web interface for Tonnie, the smart rainwater buffering system.
+    The interface shows different charts and graphs which are created with JavaScript library D3 v4.
+    The grid of the interface is made with Bootstrap v3.3.7, jQuery and Moment.js.
+    The map is created with Leaflet v1.0.3 and the date range picker is retrieved from www.daterangepicker.com.
+
+    This is the stylesheet called d3.css, where all relevant d3 CSS styles are defined.   */
 
 .line {
   fill: none;
-  stroke: steelblue;
+  stroke: #2c81bf;
   stroke-width: 2px;
 }
 
 .area {
-  fill: lightsteelblue;
+  fill: #c5dbf0;
+}
+
+.dot {
+  fill: #2c81bf;
+}
+
+.dot:hover {
+  fill: #004466;
+}
+
+.axis--x path {
+  display: none;
+}
+
+/*Rectangle bar class styling*/
+
+.bar {
+    fill: #2c81bf;
+}
+
+.bar:hover {
+    fill: #68add8;
+}
+
+/*Text class styling*/
+
+.text {
+    font-family: DINPro;
+}
+
+/*Tooltip styles */
+
+.toolTip, .toolTipPie, .toolTipBuffer, .toolTipDischarge {
+  background: #4d4d4d;
+    color: white;
+    display: none;
+    font-size: 14px;
+    padding: 10px;
+    position: absolute;
+    text-align: left;
+    z-index: 10;
+    border-radius: 2px;
+}
+
+.toolTip:after, .toolTipPie:after, .toolTipBuffer:after, .toolTipDischarge:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 14px;
+    width: 100%;
+    line-height: 1;
+    color: #4d4d4d;
+    content: "\25BC";
+    position: absolute;
+    text-align: left;
+    left: 45%;
+    top: 57px;
+}
+
+.toolTipPie:after {
+    top: 77px;
+}
+
+.toolTipBuffer:after {
+    top: 57px;
+}
+
+.toolTipDischarge:after {
+    top: 77px;
+} 
+
+#pieid {                                                          
+       margin-top: 30px;
+      } 
+
+.legend {
+    font-family: DINPro;
+    font-size: 10pt;
+}
+.rect {
+    stroke-width: 2;
 }
